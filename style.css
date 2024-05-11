@@ -1,0 +1,187 @@
+:root {
+  --primaryClr: black;
+  --secondaryClr: orange;
+  --trClr: #d4d4d2;
+  --btnClr: #505050;
+}
+
+body {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background: var(--primaryClr);
+  min-height: 100vh;
+}
+
+.calculator {
+  background: rgba(7, 7, 7, 0.51);
+  height: fit-content;
+  width: 500px;
+
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48);
+
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "display display display display"
+    "ac c per divide"
+    "b7 b8 b9 x"
+    "b4 b5 b6 minus"
+    "b1 b2 b3 plus"
+    "b0  b0 dot  equal";
+}
+
+.display {
+  grid-area: display;
+  background: var(--primaryClr);
+  color: azure;
+  padding: 1rem;
+  font-size: 2.5rem;
+  text-align: end;
+  font-weight: bolder;
+}
+
+.calculator .btn {
+  height: 80px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+.calculator .btn:hover {
+  cursor: pointer;
+  background: var(--primaryClr);
+  color: white;
+  transition: all 0.3s;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48);
+}
+
+.btn-ac {
+  grid-area: ac;
+  background: var(--trClr);
+}
+.btn-c {
+  grid-area: c;
+  background: var(--trClr);
+}
+.btn-per {
+  grid-area: per;
+  background: var(--trClr);
+}
+.btn-divide {
+  grid-area: divide;
+  background: var(--secondaryClr);
+  color: white;
+}
+.btn-7 {
+  grid-area: b7;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-8 {
+  grid-area: b8;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-9 {
+  grid-area: b9;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-x {
+  grid-area: x;
+  background: var(--secondaryClr);
+  color: white;
+}
+.btn-4 {
+  grid-area: b4;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-5 {
+  grid-area: b5;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-6 {
+  grid-area: b6;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-minus {
+  grid-area: minus;
+  background: var(--secondaryClr);
+  color: white;
+}
+.btn-1 {
+  grid-area: b1;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-2 {
+  grid-area: b2;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-3 {
+  grid-area: b3;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-plus {
+  grid-area: plus;
+  background: var(--secondaryClr);
+  color: white;
+}
+.btn-0 {
+  grid-area: b0;
+  border-radius: 30px !important;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-dot {
+  grid-area: dot;
+  background: var(--btnClr);
+  color: white;
+}
+.btn-equal {
+  grid-area: equal;
+  background: var(--secondaryClr);
+  color: white;
+}
+
+.prank {
+  background: red;
+  color: white;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
