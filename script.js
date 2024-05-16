@@ -32,6 +32,10 @@ const buttonAction = (value) => {
     return;
   }
   if (value === "=") {
+    const lastCharacter = strToDisplay[strToDisplay.length - 1];
+    if (operators.includes(lastCharacter)) {
+      strToDisplay = strToDisplay.slice(0, -1);
+    }
     total();
     return;
   }
