@@ -44,7 +44,15 @@ const buttonAction = (value) => {
     if (operators.includes(lastCharacter)) {
       strToDisplay = strToDisplay.slice(0, -1);
     }
+
     total();
+    // disregarding the value of 0/0= NaN in the display
+
+    if (strToDisplay.includes("NaN")) {
+      strToDisplay = "";
+      return;
+    }
+
     return;
   }
 
@@ -70,9 +78,6 @@ const buttonAction = (value) => {
     if (!lastOperator && strToDisplay.includes(".")) {
       return;
     }
-  }
-  if (strToDisplay === "0/0") {
-    return (strToDisplay = "0");
   }
 
   strToDisplay += value;
