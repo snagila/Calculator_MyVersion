@@ -45,9 +45,15 @@ const buttonAction = (value) => {
       strToDisplay = strToDisplay.slice(0, -1);
     }
 
-    total();
-    // disregarding the value of 0/0= NaN in the display
+    // getting rid of /,*,% in the beginning of the main display string
+    const searchstring = strToDisplay[0];
+    if (["/", "*", "%"].includes(searchstring)) {
+      strToDisplay = strToDisplay.slice(1);
+    }
 
+    total();
+
+    // disregarding the value of 0/0= NaN in the display
     if (strToDisplay.includes("NaN")) {
       strToDisplay = "";
       return;
