@@ -89,3 +89,13 @@ const buttonAction = (value) => {
   strToDisplay += value;
   display(strToDisplay);
 };
+
+// adding the keypress event
+document.addEventListener("keypress", (e) => {
+  const value = e.key;
+  if (e.code.includes("Key")) {
+    return;
+  }
+
+  buttonAction(value);
+});
