@@ -35,6 +35,8 @@ body {
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.48);
 
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
   gap: 1rem;
   grid-template-areas:
     "display display display display"
