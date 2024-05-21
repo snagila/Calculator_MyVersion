@@ -6,7 +6,7 @@ const operators = ["%", "+", "-", "/", "*"];
 let strToDisplay = "";
 let lastOperator = "";
 
-// main display function
+// 4. Main display function
 const display = (str) => {
   displayElm.innerText = str || "0";
 };
@@ -19,34 +19,37 @@ buttons.forEach((button) => {
   });
 });
 
-// total calculating function
+// 3. Total calculating function
 const total = () => {
   const ttl = eval(strToDisplay);
   strToDisplay = ttl.toString();
   display(ttl);
 };
 
+// 5. ButtonAction function to add conditions required for the operations (Passed the button value as a Parameter)
 const buttonAction = (value) => {
-  // making AC btn work
+  //  I. Making AC btn work
   if (value === "AC") {
     strToDisplay = "";
     display();
     return;
   }
-  // making C btn work
+  // II. Making C btn work
   if (value === "C") {
     strToDisplay = strToDisplay.substring(0, strToDisplay.length - 1);
     display(strToDisplay);
     return;
   }
+
+  // III. Getting "=" to perform calcualtion
   if (value === "=") {
-    // getting rid of operator in the end
+    // a. Getting rid of operator in the end
     const lastCharacter = strToDisplay[strToDisplay.length - 1];
     if (operators.includes(lastCharacter)) {
       strToDisplay = strToDisplay.slice(0, -1);
     }
 
-    // getting rid of /,*,% in the beginning of the main display string
+    // b. Getting rid of /,*,% in the beginning of the main display string
     const searchstring = strToDisplay[0];
     if (["/", "*", "%"].includes(searchstring)) {
       strToDisplay = strToDisplay.slice(1);
@@ -54,7 +57,7 @@ const buttonAction = (value) => {
 
     total();
 
-    // disregarding the value of 0/0= NaN in the display
+    // c. Disregarding the value of 0/0= NaN in the display
     if (strToDisplay.includes("NaN")) {
       strToDisplay = "";
       return;
@@ -63,7 +66,7 @@ const buttonAction = (value) => {
     return;
   }
 
-  // operator is clicked
+  // IV. Operator is clicked(Not letting two operators simultaneously)
   if (operators.includes(value)) {
     lastOperator = value;
     const lc = strToDisplay[strToDisplay.length - 1];
@@ -72,7 +75,7 @@ const buttonAction = (value) => {
     }
   }
 
-  // handing multiple "." in the equation
+  // V.  Handing multiple "." in the equation
   if (value === ".") {
     const lastOperatorIndex = strToDisplay.lastIndexOf(lastOperator);
     const lastNumberSet = strToDisplay.slice(lastOperatorIndex);
@@ -91,7 +94,7 @@ const buttonAction = (value) => {
   display(strToDisplay);
 };
 
-// adding the keypress event
+//6. adding the keypress event
 document.addEventListener("keypress", (e) => {
   const value = e.key;
   if (e.code.includes("Key")) {
