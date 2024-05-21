@@ -1,3 +1,4 @@
+// 1. Selecting DOM elements and naming variables
 const buttons = document.querySelectorAll(".btn");
 const displayElm = document.querySelector(".display");
 const operators = ["%", "+", "-", "/", "*"];
@@ -10,7 +11,7 @@ const display = (str) => {
   displayElm.innerText = str || "0";
 };
 
-// extracting the button values
+//  2. extracting the button values
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.innerText;
