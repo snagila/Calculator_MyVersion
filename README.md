@@ -21,6 +21,6 @@ A simple, user-friendly calculator that performs basic arithmetic operations inc
 
     IV. Operator is clicked(Not letting two operators simultaneously)
     V.  Handing multiple "." in the equation
-
+    VI. Only letting to display the result in three decimal places
 
     6. Adding the keypress event

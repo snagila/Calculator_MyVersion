@@ -23,7 +23,27 @@ buttons.forEach((button) => {
 const total = () => {
   const ttl = eval(strToDisplay);
   strToDisplay = ttl.toString();
-  display(ttl);
+
+  // VI. Only letting to display the result in three decimal places
+  if (strToDisplay.includes(".")) {
+    const valueTofind = ".";
+    let position = strToDisplay.indexOf(".");
+
+    if (position !== -1) {
+      let startFromDot = position + valueTofind.length;
+
+      const nextThreeValues = strToDisplay.substring(
+        startFromDot,
+        startFromDot + 3
+      );
+
+      const beforeDot = strToDisplay.substring(0, position);
+      strToDisplay = beforeDot.concat(".", nextThreeValues);
+      display(strToDisplay);
+      return;
+    }
+  }
+  display(strToDisplay);
 };
 
 // 5. ButtonAction function to add conditions required for the operations (Passed the button value as a Parameter)
